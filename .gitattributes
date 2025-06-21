@@ -1,0 +1,29 @@
+# Handle all text files as UTF-8 LF
+* text=auto eol=lf
+
+# Java files
+*.java text eol=lf
+
+# Shell scripts
+*.sh text eol=lf
+
+# Windows command scripts
+*.cmd text eol=crlf
+
+# Binary files
+*.jar binary
+*.war binary
+*.ear binary
+*.png binary
+*.jpg binary
+
+# Escape any literal exclamation marks
+\!*.jar
+
+# Default to LF
+* text=auto eol=lf
+
+# For Windows scripts
+*.cmd text eol=crlf
+*.bat text eol=crlf
+
