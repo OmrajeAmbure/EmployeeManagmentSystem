@@ -1,0 +1,31 @@
+body {
+    background-color: #f9f9f9;
+}
+
+.card {
+    transition: transform 0.3s ease;
+}
+.card:hover {
+    transform: scale(1.05);
+}
+footer a:hover {
+    text-decoration: underline;
+    color: #0dcaf0; /* Bootstrap cyan */
+}
+.card:hover {
+    transform: scale(1.02);
+    transition: 0.3s ease-in-out;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+footer {
+  background-color: #212529;
+  color: white;
+  padding: 1rem 0;
+  text-align: center;
+}
+
