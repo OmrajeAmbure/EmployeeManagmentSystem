@@ -1,40 +1,90 @@
 package com.example.springoneshot.SpringProjectDemo;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
+
+import java.util.Base64;
+
+
 @Entity
-@Table(name="emp_table")
+@Table(name="Employee_Table1")
 public class EmployeeEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id; // ✅ Lombok will generate setId(Long id)
+    private String employeeId;
     private String name;
-    private String phone;
     private String email;
+    private String phone;
+    private String department;
+    private String designation;
+    private String address;
+    private String dob;
+    private String joiningDate;
+    private String salary;
+    private String status;
+    private String manager;
+    private String skills;
+    private String experience;
+    private String education;
+    private String certifications;
+    private String projects;
+    private String languages;
+    @Lob
+    private byte[] imageData;
 
-    public EmployeeEntity() {}
 
-    public EmployeeEntity(int id, String name, String phone, String email) {
+    public EmployeeEntity(){};
+    public EmployeeEntity(Long id, String employeeId, String name, String email, String phone, String department, String designation, String address, String dob, String joiningDate, String salary, String status, String manager, String skills, String experience, String education, String certifications, String projects, String languages) {
         this.id = id;
+        this.employeeId = employeeId;
         this.name = name;
-        this.phone = phone;
         this.email = email;
+        this.phone = phone;
+        this.department = department;
+        this.designation = designation;
+        this.address = address;
+        this.dob = dob;
+        this.joiningDate = joiningDate;
+        this.salary = salary;
+        this.status = status;
+        this.manager = manager;
+        this.skills = skills;
+        this.experience = experience;
+        this.education = education;
+        this.certifications = certifications;
+        this.projects = projects;
+        this.languages = languages;
     }
-
-    public int getId() {
+    // ✅ This will be included in JSON
+    @JsonProperty("imageBase64")
+    public String getImageBase64() {
+        if (imageData != null) {
+            return Base64.getEncoder().encodeToString(imageData);
+        }
+        return null;
+    }
+    public Long getId() {
         return id;
     }
-
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {  // ✅ Corrected setter
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -54,8 +104,147 @@ public class EmployeeEntity {
         this.phone = phone;
     }
 
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public String getDesignation() {
+        return designation;
+    }
+
+    public void setDesignation(String designation) {
+        this.designation = designation;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getDob() {
+        return dob;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
+    }
+
+    public String getJoiningDate() {
+        return joiningDate;
+    }
+
+    public void setJoiningDate(String joiningDate) {
+        this.joiningDate = joiningDate;
+    }
+
+    public String getSalary() {
+        return salary;
+    }
+
+    public void setSalary(String salary) {
+        this.salary = salary;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getManager() {
+        return manager;
+    }
+
+    public void setManager(String manager) {
+        this.manager = manager;
+    }
+
+    public String getSkills() {
+        return skills;
+    }
+
+    public void setSkills(String skills) {
+        this.skills = skills;
+    }
+
+    public String getExperience() {
+        return experience;
+    }
+
+    public void setExperience(String experience) {
+        this.experience = experience;
+    }
+
+    public String getEducation() {
+        return education;
+    }
+
+    public void setEducation(String education) {
+        this.education = education;
+    }
+
+    public String getCertifications() {
+        return certifications;
+    }
+
+    public void setCertifications(String certifications) {
+        this.certifications = certifications;
+    }
+
+    public String getProjects() {
+        return projects;
+    }
+
+    public void setProjects(String projects) {
+        this.projects = projects;
+    }
+
+    public String getLanguages() {
+        return languages;
+    }
+
+    public void setLanguages(String languages) {
+        this.languages = languages;
+    }
+    public byte[] getImageData() {
+        return imageData;
+    }
+
+    public void setImageData(byte[] imageData) {
+        this.imageData = imageData;
+    }
     @Override
     public String toString() {
-        return "Employee{Id: " + this.id + ", Name: " + this.name + ", Phone: " + this.phone + ", Email: " + this.email + "}";
+        return "EmployeeEntity{" +
+                "id=" + id +
+                ", employeeId='" + employeeId + '\'' +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", department='" + department + '\'' +
+                ", designation='" + designation + '\'' +
+                ", address='" + address + '\'' +
+                ", dob='" + dob + '\'' +
+                ", joiningDate='" + joiningDate + '\'' +
+                ", salary='" + salary + '\'' +
+                ", status='" + status + '\'' +
+                ", manager='" + manager + '\'' +
+                ", skills='" + skills + '\'' +
+                ", experience='" + experience + '\'' +
+                ", education='" + education + '\'' +
+                ", certifications='" + certifications + '\'' +
+                ", projects='" + projects + '\'' +
+                ", languages='" + languages + '\'' +
+                '}';
     }
+
 }
